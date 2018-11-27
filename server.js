@@ -21,7 +21,7 @@ require('./server/models/user.js');
 
 // require j00r route files
 app.use(require('./server/config/routes.js'));
-app.use(require('./server/config/catch-all.routes.js'));
+// app.use(require('./server/config/catch-all.routes.js'));
 // app.use('/api', require('./app/config/routes.js'));
 
 // start backend server
