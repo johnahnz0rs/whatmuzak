@@ -3,10 +3,12 @@ let express = require('express');
 let cors = require('cors');
 let path = require('path');
 let bodyParser = require('body-parser');
-let dotenv = require('dotenv');
 
+let dotenv = require('dotenv');
 dotenv.config();
+
 let app = express();
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,7 +19,7 @@ require('./server/config/database.js');
 require('./server/models/user.js');
 
 // serve react files
-
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // require j00r route files
 app.use(require('./server/config/routes.js'));
