@@ -5,7 +5,8 @@ let querystring = require('querystring');
 let dotenv = require('dotenv');
 dotenv.config();
 
-let redirect_uri = process.env.REDIRECT_URI;
+// let redirect_uri = process.env.REDIRECT_URI;
+let redirect_uri = 'https://whatmuzak.herokuapp.com/api/callback-spotify';
 
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
     // LOGIN TO MUSIC SERVICES
     //
 
-    // @ROUTE /login/spotify
+    // @ROUTE /api/login-spotify
     // @DESC login to spotify OAuth v2
     loginSpotify: function(req, res) {
         console.log('*** controller.loginSpotify() ***', req.body);
@@ -29,7 +30,7 @@ module.exports = {
         );
     },
 
-    // @ROUTE /callback-spotify
+    // @ROUTE /api/callback-spotify
     // @DESC spotify's callback url
     callbackSpotify: function(req, res) {
         console.log('*** controller.callbackSpotify() ***', req.body);

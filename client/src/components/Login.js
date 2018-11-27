@@ -1,41 +1,27 @@
 import React from 'react';
 
 
-const backendURI = 'http://localhost:5000';
-// const backendURI = process.env.BACKEND_URI; /* this one doesn't work: process.env... resolves to undefined */
+// const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
+const spotifyLoginURL = 'https://whatmuzak.herokuapp.com/api/login-spotify';
+// const spotifyLoginURL = '/api/login-spotify';
+
+
 class Login extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            user: this.props.user
         };
         // declare methods here
-        this.signInWithSpotify = this.signInWithSpotify.bind(this);
     }
 
-    componentDidMount() {
-
-    }
-
-
-
-    signInWithSpotify = () => {
-        fetch('/api/login-spotify')
-            .then(res => res.json())
-            .then(() => this.props.pickPage('profile'));
-    };
+    componentDidMount() { }
 
     render() {
-
-        // const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
-        const spotifyLoginURL = `${backendURI}/api/login-spotify`;
 
         return(
             <React.Fragment>
                 <div className="container">
-                    {/*<p>lol this is login</p>*/}
-                    {/*<button className="btn btn-sm btn-outline-primary" onClick={() => console.log('*** print Login.state ***', this.state)}>print Login.state</button>*/}
 
                     <h5 className="propaganda-text-stroke mb-5 ml-auto text-center" style={{width: '50%'}}>Musical compatibility is important to many people. And that makes sense - music is really intimate; it's emotional.</h5>
 
