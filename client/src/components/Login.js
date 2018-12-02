@@ -18,7 +18,7 @@ class Login extends React.Component {
 
     render() {
 
-        const spotifyLoginURL = '/api/login-spotify';
+        const spotifyLoginURL = 'https://whatmuzak.herokuapp.com/api/login-spotify';
         // const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
 
         return(
@@ -35,8 +35,7 @@ class Login extends React.Component {
                         <a href={spotifyLoginURL}>
                             <button
                                 className="btn btn-sm btn-outline-primary"
-                                style={{borderWidth: '2px'}}
-                                onClick={this.signInWithSpotify}>
+                                style={{borderWidth: '2px'}}>
                                 <span className="font-weight-bold"><u>Sign in with Spotify</u></span>
                             </button>
                         </a>
