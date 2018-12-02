@@ -19,7 +19,7 @@ require('./server/config/database.js');
 require('./server/models/user.js');
 
 // serve react files
-app.use(express.static(path.join(__dirname, '/client/build', 'index.html')));
+app.use(express.static(path.join(__dirname, 'client/build', 'index.html')));
 
 // require j00r route files
 app.use(require('./server/config/routes.js'));
