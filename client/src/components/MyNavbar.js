@@ -1,16 +1,24 @@
 import React from 'react';
+import { NavLink, withRouter } from "react-router-dom";
+
 
 const MyNavbar = (props) => {
 
+    console.log('lol this is navbar', props);
+    const accessToken = props.location.search;
+
     return (
+
+
+
         <React.Fragment>
 
             <nav className="navbar navbar-expand-sm navbar-dark container-fluid fixed-top" style={{backgroundColor: '#F36D76'}}>
 
                 {/* brand-home */}
-                <a className="navbar-brand px-3" href="#" onClick={() => { props.showThisPage('home') }}>
+                <NavLink to={'/user/home' + accessToken} className="navbar-brand px-3" href="#" onClick={() => { props.showThisPage('home') }}>
                     <span className="navbar-brand font-weight-bold" style={{fontSize: 'x-large'}}>whatMusic </span>
-                </a>
+                </NavLink>
                 {/* toggler-icon */}
                 <button className="navbar-toggler mx-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -19,16 +27,16 @@ const MyNavbar = (props) => {
                 <div className="collapse navbar-collapse px-3" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto text-center font-weight-bold">
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#" style={{color: 'white'}} onClick={() => { props.showThisPage('mymusic') }}>My Music</a>
+                            <NavLink to={props.match.url + "/my-music" + accessToken} className="nav-link" style={{color: 'white'}}>My Music</NavLink>
                         </li>
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#" style={{color: 'white'}} onClick={() => { props.showThisPage('friends') }}>Search Friends</a>
+                            <NavLink to={props.match.url + "/friends"} className="nav-link" style={{color: 'white'}} >Search Friends</NavLink>
                         </li>
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#" style={{color: 'white'}} onClick={() => { props.showThisPage('nearby') }}>Find Nearby</a>
+                            <NavLink to={props.match.url + "/nearby"} className="nav-link" style={{color: 'white'}}>Find Nearby</NavLink>
                         </li>
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#" style={{color: 'white'}} onClick={() => { props.showThisPage('rando') }}>Meet Rando</a>
+                            <NavLink to={props.match.url + "/rando"} className="nav-link" style={{color: 'white'}}>Meet Rando</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -39,4 +47,4 @@ const MyNavbar = (props) => {
 
 };
 
-export default MyNavbar;
+export default withRouter(MyNavbar);

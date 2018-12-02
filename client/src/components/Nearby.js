@@ -3,10 +3,10 @@ import React from 'react';
 
 class Nearby extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-    }
+    // constructor(props) {
+    //     super(props);
+    //
+    // }
 
     render() {
         return(<React.Fragment>

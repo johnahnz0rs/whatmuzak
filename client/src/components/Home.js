@@ -1,20 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.showThisPage = this.showThisPage.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //
+    //     // bind methods here
+    // }
 
     componentDidMount() { }
 
-    showThisPage = (e) => {
-        const page = e.target.name;
-        this.props.showThisPage(page);
-
-    };
 
 
 
@@ -30,9 +26,6 @@ class Home extends React.Component {
             color: 'white',
             border: '5px solid teal',
         };
-        const testing = {
-            WebkitTextStroke: '5px purple',
-        };
 
         return (<React.Fragment>
             <div>
@@ -41,12 +34,20 @@ class Home extends React.Component {
 
                 <div className="container-fluid text-center mt-3" style={{}}>
                     <div className="">
-                        <button name="mymusic" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={this.showThisPage}>My Music</button>
-                        <button name="friends" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={this.showThisPage}>Search for Friends</button>
+                        <Link to={"/user/my-music"}>
+                            <button name="mymusic" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>My Music</button>
+                        </Link>
+                        <Link to={"/user/friends"}>
+                            <button name="friends" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>Search for Friends</button>
+                        </Link>
                     </div>
                     <div className="">
-                        <button name="nearby" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={this.showThisPage}>Find Nearby</button>
-                        <button name="rando" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={this.showThisPage}>Meet a Rando</button>
+                        <Link to={"/user/nearby"}>
+                            <button name="nearby" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>Find Nearby</button>
+                        </Link>
+                        <Link to={"/user/rando"}>
+                            <button name="rando" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>Meet a Rando</button>
+                        </Link>
                     </div>
                 </div>
 

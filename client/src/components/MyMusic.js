@@ -1,5 +1,7 @@
 import React from 'react';
-import ListOfSpotifyApiCalls from "./ListOfSpotifyApiCalls";
+import { withRouter } from 'react-router-dom';
+
+// import ListOfSpotifyApiCalls from "./ListOfSpotifyApiCalls";
 
 
 class MyMusic extends React.Component {
@@ -9,19 +11,23 @@ class MyMusic extends React.Component {
         this.state = {
             nicoleSpotifyID: '1215746208',
             playlistID: '37i9dQZF1DX76Wlfdnj7AP',
-
+            accessToken: null,
         };
         // declare methods here;
 
     }
 
     componentDidMount() {
+
+        // const accessToken = this.props.accessToken;
         const searchParams = new URLSearchParams(window.location.search);
         const accessToken = searchParams.get('access_token');
         const getConfig = {
             method: 'GET',
             headers: { Authorization: `Bearer ${accessToken}` }
         };
+
+        console.log('***** lololololololol *********', accessToken);
 
         // @DESC get my profile
         // @ROUTE GET /v1/me
@@ -150,4 +156,4 @@ class MyMusic extends React.Component {
 }
 
 
-export default MyMusic;
+export default withRouter(MyMusic);

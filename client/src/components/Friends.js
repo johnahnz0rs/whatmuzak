@@ -3,9 +3,13 @@ import React from 'react';
 
 class Friends extends React.Component {
 
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
+    //
+    // }
 
+    componentDidMount() {
+        console.log(this.props);
     }
 
     render() {

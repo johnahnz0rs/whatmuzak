@@ -5,8 +5,8 @@ let querystring = require('querystring');
 let dotenv = require('dotenv');
 dotenv.config();
 
-// let redirect_uri = process.env.REDIRECT_URI;
-let redirect_uri = 'https://whatmuzak.herokuapp.com/api/callback-spotify';
+let redirect_uri = process.env.REDIRECT_URI;
+// let redirect_uri = 'https://whatmuzak.herokuapp.com/api/callback-spotify';
 
 
 module.exports = {
@@ -55,6 +55,7 @@ module.exports = {
             let access_token = body.access_token;
             let uri = process.env.FRONTEND_URI + '/user';
             res.redirect(uri + '?access_token=' + access_token);
+            // res.json({uri: uri, access_token: access_token});
         });
     },
 
