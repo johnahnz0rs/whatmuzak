@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 import UserPage from './UserPage';
 import Login from './Login';
+import GotAccessToken from './GotAccessToken';
 
 
 class ContentArea extends React.Component {
@@ -22,13 +23,11 @@ class ContentArea extends React.Component {
 
         return (
             <React.Fragment>
-                <div className="root-div">
-                    <div className="my-background">
+                <div className="my-background">
 
-                        <Route exact path="/" component={Login} />
-                        <Route path="/user/:accessToken" component={UserPage} />
+                    <Route path="/" exact component={Login} />
+                    <Route path="/user/:token" component={GotAccessToken} />
 
-                    </div>
                 </div>
             </React.Fragment>
         );

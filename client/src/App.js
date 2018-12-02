@@ -9,9 +9,7 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <React.Fragment>
-                    <ContentArea />
-                </React.Fragment>
+                <ContentArea />
             </BrowserRouter>
         );
     }

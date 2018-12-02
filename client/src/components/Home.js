@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Home extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    //
-    //     // bind methods here
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            root: null,
+        };
+        // bind methods here
+    }
 
-    componentDidMount() { }
+    componentDidMount() {
+        console.log(this.props);
+        if (this.props.accessToken) {
+            const rootURL = '/user/' + this.props.accessToken;
+            this.setState({root: rootURL});
+        } else {
+            const token = '/user/' + this.props.match.url.split('/')[2];
+            console.log('token', token);
+            this.setState({root: token});
+        }
+    }
 
 
 
@@ -34,19 +46,19 @@ class Home extends React.Component {
 
                 <div className="container-fluid text-center mt-3" style={{}}>
                     <div className="">
-                        <Link to={"/user/my-music"}>
-                            <button name="mymusic" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>My Music</button>
+                        <Link to={this.state.root + "/my-music"}>
+                            <button name="mymusic" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={() => console.log('lol u clicked a box', this.state.root)}>My Music</button>
                         </Link>
-                        <Link to={"/user/friends"}>
-                            <button name="friends" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>Search for Friends</button>
+                        <Link to={this.state.root + "/friends"}>
+                            <button name="friends" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={() => console.log('lol u clicked a box', this.state.root)}>Search for Friends</button>
                         </Link>
                     </div>
                     <div className="">
-                        <Link to={"/user/nearby"}>
-                            <button name="nearby" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>Find Nearby</button>
+                        <Link to={this.state.root + "/nearby"}>
+                            <button name="nearby" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={() => console.log('lol u clicked a box', this.state.root)}>Find Nearby</button>
                         </Link>
-                        <Link to={"/user/rando"}>
-                            <button name="rando" className="btn btn-lg btn-outline-success m-3" style={pageButtons}>Meet a Rando</button>
+                        <Link to={this.state.root + "/rando"}>
+                            <button name="rando" className="btn btn-lg btn-outline-success m-3" style={pageButtons} onClick={() => console.log('lol u clicked a box', this.state.root)}>Meet a Rando</button>
                         </Link>
                     </div>
                 </div>
@@ -57,4 +69,4 @@ class Home extends React.Component {
 
 }
 
-export default Home;
+export default withRouter(Home);
