@@ -26,9 +26,12 @@ class UserPage extends React.Component {
 
     componentDidMount() {
         console.log(this.props);
-        const accessToken = this.props.location.search.split('?access_token=')[1];
+
+        // const accessToken = this.props.location.search.split('?access_token=')[1];
+        const accessToken = this.props.match.params.accessToken;
+
+        console.log('from params', accessToken);
         this.setState({accessToken: accessToken});
-        console.log(accessToken);
     }
 
 

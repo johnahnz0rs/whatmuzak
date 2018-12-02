@@ -26,7 +26,7 @@ class ContentArea extends React.Component {
                     <div className="my-background">
 
                         <Route exact path="/" component={Login} />
-                        <Route path="/user" component={UserPage} />
+                        <Route path="/user/:accessToken" component={UserPage} />
 
                     </div>
                 </div>
