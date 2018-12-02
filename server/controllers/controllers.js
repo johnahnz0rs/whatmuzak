@@ -55,7 +55,9 @@ module.exports = {
             let access_token = body.access_token;
             let uri = process.env.FRONTEND_URI + '/user';
             console.log('/user/' + access_token);
-            res.redirect('/user/' + access_token);
+            // res.redirect('http://localhost:3000/user/' + access_token);
+            res.redirect('https://whatmuzak.herokuapp.com/user/' + access_token);
+            // res.redirect('/user/' + access_token);
             // res.json({uri: uri, access_token: access_token});
         });
     },
