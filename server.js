@@ -14,16 +14,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+
+// serve react files
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('*', express.static('client/build'));
+
+
 // require j00r dbase
 require('./server/config/database.js');
 require('./server/models/user.js');
 
-// serve react files
-app.use(express.static(path.join(__dirname, 'client/build')));
-
 // require j00r route files
 app.use(require('./server/config/routes.js'));
 app.use(require('./server/config/catch-all.routes'));
+
+
 
 // start backend server
 const port = process.env.PORT || 5000;
