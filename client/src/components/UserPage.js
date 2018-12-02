@@ -38,7 +38,7 @@ class UserPage extends React.Component {
         return(<React.Fragment>
             <div className="" style={{}}>
 
-                <MyNavbar showThisPage={this.showThisPage} accessToken={this.state.accessToken} />
+                <MyNavbar />
 
                 <Switch>
                     <Route path={this.props.match.url + '/home'} component={Home} />

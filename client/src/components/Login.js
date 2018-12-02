@@ -1,32 +1,39 @@
 import React from 'react';
-import axios from 'axios';
-// import { Link } from 'react-router-dom';
+// import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
-const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
+// const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
 // const spotifyLoginURL = 'https://whatmuzak.herokuapp.com/api/login-spotify';
 // const spotifyLoginURL = '/api/login-spotify';
 
 
 class Login extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-        // declare methods here
-        this.signInWithSpotify = this.signInWithSpotify.bind(this);
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //     };
+    //     // declare methods here
+    //     // this.signInWithSpotify = this.signInWithSpotify.bind(this);
+    // }
+
+    componentDidMount() {
+
+        console.log(this.props);
+
     }
 
-    componentDidMount() { }
-
-    signInWithSpotify = () => {
-        axios.get(spotifyLoginURL)
-            .then(response => console.log(response))
-            .catch(error => console.log(error));
-    };
+    // signInWithSpotify = () => {
+    //     axios.get(spotifyLoginURL)
+    //         .then(response => console.log(response))
+    //         .catch(error => console.log(error));
+    // };
 
     render() {
+
+        const spotifyLoginURL = '/api/login-spotify';
+        // const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
 
         return(
             <React.Fragment>
@@ -43,13 +50,16 @@ class Login extends React.Component {
                             {/*onClick={this.signInWithSpotify}>*/}
                             {/*<span className="font-weight-bold"><u>Sign in with Spotify</u></span>*/}
                         {/*</button>*/}
+
                         <a href={spotifyLoginURL}>
+                        {/*<Link to={spotifyLoginURL}>*/}
                             <button
                                 className="btn btn-sm btn-outline-primary"
                                 style={{borderWidth: '2px'}}
                                 onClick={this.signInWithSpotify}>
                                 <span className="font-weight-bold"><u>Sign in with Spotify</u></span>
                             </button>
+                        {/*</Link>*/}
                         </a>
                     </div>
 

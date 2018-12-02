@@ -11,7 +11,7 @@ class MyMusic extends React.Component {
         this.state = {
             nicoleSpotifyID: '1215746208',
             playlistID: '37i9dQZF1DX76Wlfdnj7AP',
-            accessToken: null,
+            // accessToken: null,
         };
         // declare methods here;
 
@@ -27,7 +27,7 @@ class MyMusic extends React.Component {
             headers: { Authorization: `Bearer ${accessToken}` }
         };
 
-        console.log('***** lololololololol *********', accessToken);
+        // console.log('***** lololololololol *********', accessToken);
 
         // @DESC get my profile
         // @ROUTE GET /v1/me
