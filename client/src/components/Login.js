@@ -32,8 +32,8 @@ class Login extends React.Component {
 
     render() {
 
-        // const spotifyLoginURL = '/api/login-spotify';
-        const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
+        const spotifyLoginURL = '/api/login-spotify';
+        // const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
 
         return(
             <React.Fragment>
