@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // require j00r route files
 app.use(require('./server/config/routes.js'));
+app.use(require('./server/config/catch-all.routes'));
 
 // start backend server
 const port = process.env.PORT || 5000;
