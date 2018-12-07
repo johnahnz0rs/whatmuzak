@@ -18,8 +18,8 @@ class Login extends React.Component {
 
     render() {
 
-        const spotifyLoginURL = 'https://whatmuzak.herokuapp.com/api/login-spotify';
-        // const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
+        // const spotifyLoginURL = 'https://whatmuzak.herokuapp.com/api/login-spotify';
+        const spotifyLoginURL = 'http://localhost:5000/api/login-spotify';
 
         return(
             <React.Fragment>

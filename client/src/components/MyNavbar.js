@@ -5,7 +5,7 @@ import { NavLink, withRouter } from "react-router-dom";
 const MyNavbar = (props) => {
 
     console.log('lol this is navbar', props);
-    const rootURL = '/user/' + props.accessToken;
+    // const rootURL = '/user/' + props.accessToken;
 
     return (
 
@@ -16,7 +16,7 @@ const MyNavbar = (props) => {
             <nav className="navbar navbar-expand-sm navbar-dark container-fluid fixed-top" style={{backgroundColor: '#F36D76'}}>
 
                 {/* brand-home */}
-                <NavLink to={rootURL + '/home'} className="navbar-brand px-3">
+                <NavLink to={'/home'} className="navbar-brand px-3">
                     <span className="navbar-brand font-weight-bold" style={{fontSize: 'x-large'}}>whatMusic </span>
                 </NavLink>
                 {/* toggler-icon */}
@@ -27,16 +27,16 @@ const MyNavbar = (props) => {
                 <div className="collapse navbar-collapse px-3" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto text-center font-weight-bold">
                         <li className="nav-item mx-1">
-                            <NavLink to={rootURL + '/my-music'} className="nav-link" style={{color: 'white'}}>My Music</NavLink>
+                            <NavLink to='/my-music' className="nav-link" style={{color: 'white'}}>My Music</NavLink>
                         </li>
                         <li className="nav-item mx-1">
-                            <NavLink to={rootURL + "/friends"} className="nav-link" style={{color: 'white'}} >Search Friends</NavLink>
+                            <NavLink to="/friends" className="nav-link" style={{color: 'white'}} >Search Friends</NavLink>
                         </li>
                         <li className="nav-item mx-1">
-                            <NavLink to={rootURL + "/nearby"} className="nav-link" style={{color: 'white'}}>Find Nearby</NavLink>
+                            <NavLink to="/nearby" className="nav-link" style={{color: 'white'}}>Find Nearby</NavLink>
                         </li>
                         <li className="nav-item mx-1">
-                            <NavLink to={rootURL + "/rando"} className="nav-link" style={{color: 'white'}}>Meet Rando</NavLink>
+                            <NavLink to="/rando" className="nav-link" style={{color: 'white'}}>Meet Rando</NavLink>
                         </li>
                     </ul>
                 </div>

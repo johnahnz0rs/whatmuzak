@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import UserPage from './UserPage';
 import Login from './Login';
@@ -11,13 +11,20 @@ class ContentArea extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            accessToken: null,
 
         };
         // declare methods here
+        this.getDatToken = this.getDatToken.bind(this);
     }
 
     componentDidMount() {
     }
+
+    getDatToken = token => {
+        this.setState({accessToken: token});
+        this.props.history.push('/user');
+    };
 
     render() {
 
@@ -26,12 +33,12 @@ class ContentArea extends React.Component {
                 <div className="my-background">
 
                     <Route path="/" exact component={Login} />
-                    <Route path="/user/:token" component={GotAccessToken} />
-
+                    <Route path="/user/:token" exact render={() => <GotAccessToken getDatToken={this.getDatToken} />} />
+                    {this.state.accessToken && <Route path="/user" exact render={() => <UserPage accessToken={this.accessToken}/>}/>}
                 </div>
             </React.Fragment>
         );
     }
 };
 
-export default ContentArea;
+export default withRouter(ContentArea);

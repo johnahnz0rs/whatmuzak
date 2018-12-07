@@ -48,7 +48,7 @@ class UserPage extends React.Component {
         return(<React.Fragment>
             <div className="" style={{}}>
 
-                <MyNavbar accessToken={this.state.accessToken}/>
+                (this.state.accessToken && <MyNavbar />}
 
                 <Switch>
                     {/*<Route path={this.state.navRoot + '/home'} component={Home} />*/}
@@ -60,12 +60,19 @@ class UserPage extends React.Component {
                     {/*<Route path="/" component={Home} />*/}
 
 
-                    <Route path={this.props.match.url + '/home'} component={Home} />
-                    <Route path={this.props.match.url + '/friends'} component={Friends} />
-                    <Route path={this.props.match.url + '/my-music'} component={MyMusic} />
-                    <Route path={this.props.match.url + '/rando'} component={Rando} />
-                    <Route path={this.props.match.url + '/nearby'} component={Nearby} />
-                    <Route path="/" render={() => <Home accessToken={this.state.accessToken} />} />
+                    {/*<Route path={this.props.match.url + '/home'} component={Home} />*/}
+                    {/*<Route path={this.props.match.url + '/friends'} component={Friends} />*/}
+                    {/*<Route path={this.props.match.url + '/my-music'} component={MyMusic} />*/}
+                    {/*<Route path={this.props.match.url + '/rando'} component={Rando} />*/}
+                    {/*<Route path={this.props.match.url + '/nearby'} component={Nearby} />*/}
+                    {/*<Route path="/" exact render={() => <Home accessToken={this.state.accessToken} />} />*/}
+
+                    <Route path="/home" component={Home} />
+                    <Route path="/friends" component={Friends} />
+                    <Route path="/my-music" component={MyMusic} />
+                    <Route path="/rando" component={Rando} />
+                    <Route path="/nearby" component={Nearby} />
+                    <Route path="/user" exact render={() => <Home accessToken={this.state.accessToken} />} />
 
 
 

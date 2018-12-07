@@ -21,6 +21,10 @@ class Home extends React.Component {
             console.log('token', token);
             this.setState({root: token});
         }
+        fetch('http://localhost:5000/api/when-app-loads')
+            .then(res => res.json())
+            .then(data => console.log('*** msg from backend ***', data))
+            .catch(err => console.log(err));
     }
 
 

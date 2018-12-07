@@ -11,6 +11,7 @@ class GotAccessToken extends React.Component {
             accessToken: null,
         };
         // declare methods here
+        this.getDatToken = this.getDatToken.bind(this);
     }
 
     componentDidMount() {
@@ -20,14 +21,21 @@ class GotAccessToken extends React.Component {
         const accessToken = this.props.match.params.token;
         //
         // console.log('from params', accessToken);
-        this.setState({accessToken: accessToken});
+        // this.setState({accessToken: accessToken});
+
+        this.getDatToken(this.props.match.params.token);
 
     }
+
+    getDatToken = (token) => {
+        this.props.getDatToken(token);
+    };
 
     render() {
         return(<React.Fragment>
 
-            {this.state.accessToken && <UserPage accessToken={this.state.accessToken} /> }
+            {/*{this.state.accessToken && <UserPage accessToken={this.state.accessToken} /> }*/}
+            <div>&nbsp;</div>
 
         </React.Fragment>);
     }

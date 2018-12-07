@@ -11,6 +11,12 @@ let redirect_uri = process.env.REDIRECT_URI;
 
 module.exports = {
 
+
+    whenAppLoads: function(req, res) {
+        console.log(req.body);
+        res.json({hello: 'hello from backend server!'});
+    },
+
     //
     // LOGIN TO MUSIC SERVICES
     //
@@ -53,12 +59,13 @@ module.exports = {
         };
         request.post(authOptions, function(error, response, body) {
             let access_token = body.access_token;
-            let uri = process.env.FRONTEND_URI + '/user';
-            console.log('/user/' + access_token);
+            let uri = process.env.FRONTEND_URI + '/user/' + access_token;
+            // console.log('/user/' + access_token);
             // res.redirect('http://localhost:3000/user/' + access_token);
-            res.redirect('https://whatmuzak.herokuapp.com/user/' + access_token);
+            // res.redirect('https://whatmuzak.herokuapp.com/user/' + access_token);
             // res.redirect('/user/' + access_token);
             // res.json({uri: uri, access_token: access_token});
+            res.redirect(uri);
         });
     },
 
